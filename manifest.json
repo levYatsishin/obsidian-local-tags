@@ -1,0 +1,10 @@
+{
+	"id": "local-tags",
+	"name": "Local tags",
+	"version": "1.0.0",
+	"minAppVersion": "1.6.0",
+	"description": "Color, browse, and find local file-scope @tags in Obsidian notes.",
+	"author": "Leo Yatsishin",
+	"authorUrl": "https://github.com/levYatsishin",
+	"isDesktopOnly": false
+}
