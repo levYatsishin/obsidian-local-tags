@@ -1,66 +1,90 @@
 # Local tags
 
-Color, browse, and find local file-scope `@tags` in Obsidian notes.
+> This plugin was created with LLM assistance because I wanted this functionality for real use, fast. It is maintained in a practical, functionality-first way. If it is useful to you, feel free to use it, open issues, or send pull requests.
 
-## What it does
+Local tags is an Obsidian plugin for inline file-scoped `@tags`.
 
-- highlights local `@tags` in the editor
-- ignores `@...` inside inline code and fenced code blocks
-- gives each tag a stable per-file color from a configurable palette
-- adds a sidebar for browsing local tags in the current note
-- lets you open Obsidian find for a selected local tag
-- lets you swap tag colors from the sidebar palette
+It highlights `@tags` directly in your notes, assigns them distinct colors per file, and gives you a sidebar for browsing and finding them quickly inside the current note.
 
-## Status
+![Local tags overview](screenshots/overview.png)
 
-This plugin is functional and actively usable, but it is still evolving.
+## Why this exists
 
-This project was created with LLM assistance because I wanted this functionality quickly and primarily care about it working well for my own use. If it is useful to you too, great. If you hit bugs or want improvements, feel free to open an issue or send a pull request. This is effectively an LLM-assisted, functionality-first project.
+Obsidian has native `#tags`, but sometimes you want lightweight inline markers that are local to a single note and do not become part of your global tag system.
 
-## Repository
+This plugin is built for that workflow:
 
-- GitHub: [levYatsishin/obsidian-local-tags](https://github.com/levYatsishin/obsidian-local-tags)
-- Issues: [github.com/levYatsishin/obsidian-local-tags/issues](https://github.com/levYatsishin/obsidian-local-tags/issues)
+- use `@tags` inside one note
+- keep them visually distinct
+- browse them from a sidebar
+- jump into Obsidian find for the selected tag
 
-## Install for development
+## At a glance
 
-The easiest workflow is to keep this repo directly inside your vault plugin directory:
+Highlight local tags directly in the editor and keep the current note's tags visible in a dedicated sidebar.
+
+![Highlighted local tags in the editor](screenshots/editor-tags.png)
+
+## Features
+
+- Highlight inline local tags such as `@todo`, `@idea`, or `@team`
+- Ignore `@...` inside inline code and fenced code blocks
+- Assign stable colors to tags per file
+- Browse all local tags in the current note from a sidebar
+- Filter the tag list in the sidebar
+- Open Obsidian's find UI for the selected tag in the current file
+- Change tag colors from a palette in the sidebar
+- Customize the color pool and visual styling in plugin settings
+
+## How it works
+
+`@tags` are treated as local note markers, not vault-wide metadata.
+
+That means:
+
+- colors are assigned within the current file
+- the sidebar only shows tags from the active note
+- changing a tag color affects that tag in that file only
+
+Examples:
+
+- `Discuss this with @team`
+- `Need to revisit @todo`
+- `Archive this later @later`
+
+## Install
+
+### Manual install
+
+1. Download `main.js`, `manifest.json`, and `styles.css` from the latest release.
+2. Create this folder inside your vault:
 
 ```text
 <Vault>/.obsidian/plugins/local-tags/
 ```
 
-Then run:
+3. Put the three files into that folder.
+4. Open **Settings → Community plugins** in Obsidian.
+5. Enable **Local tags**.
 
-```bash
-npm install
-npm run dev
-```
+## Usage
 
-Obsidian will load the built `main.js` from that folder. After code changes:
+1. Open any note.
+2. Type inline tags such as `@todo` or `@scene-1`.
+3. Open the command palette and run `Open local tag sidebar`.
+4. Select a tag in the sidebar to find it in the current note.
+5. Use the color button in the sidebar to choose a different color for that tag.
 
-1. keep `npm run dev` running
-2. reload the plugin in Obsidian
+![Sidebar and color palette](screenshots/sidebar-palette.png)
 
-If you prefer keeping the repo elsewhere, use a symlink into:
+## Settings
 
-```text
-<Vault>/.obsidian/plugins/local-tags/
-```
+The plugin currently lets you configure:
 
-## Manual install
-
-Copy these files into:
-
-```text
-<Vault>/.obsidian/plugins/local-tags/
-```
-
-- `main.js`
-- `manifest.json`
-- `styles.css`
-
-Then enable **Local tags** in **Settings → Community plugins**.
+- whether highlighting is enabled
+- tag border radius
+- tag font weight
+- the pool of colors available for local tags
 
 ## Development
 
@@ -69,44 +93,50 @@ Requirements:
 - Node.js 18+
 - npm
 
-Useful commands:
+Development workflow:
 
 ```bash
 npm install
 npm run dev
+```
+
+Production build:
+
+```bash
 npm run build
+```
+
+Quality checks:
+
+```bash
 npm run lint
 npm run check
 ```
 
-## Release process
+The easiest local development setup is to place this repo directly in:
 
-For a GitHub release:
+```text
+<Vault>/.obsidian/plugins/local-tags/
+```
 
-1. bump `version` in `manifest.json`
-2. update `versions.json`
-3. run `npm run check`
-4. create a GitHub release tag that exactly matches the version, for example `1.0.1`
-5. attach `manifest.json`, `main.js`, and `styles.css`
+Then run `npm run dev` and reload the plugin in Obsidian after changes.
 
-This repo includes a GitHub Actions release workflow that can upload those assets to a published GitHub release.
+## Releases
 
-## Community plugin submission
+This repository is prepared for GitHub releases.
 
-Not submitted yet.
+For a release:
 
-When ready:
+1. Bump `version` in `manifest.json`
+2. Update `versions.json`
+3. Run `npm run check`
+4. Create a GitHub release tag that exactly matches the plugin version
+5. Attach `main.js`, `manifest.json`, and `styles.css`
 
-1. publish at least one GitHub release
-2. make sure the README is accurate
-3. submit the plugin to [`obsidianmd/obsidian-releases`](https://github.com/obsidianmd/obsidian-releases)
+Repository:
 
-## Notes
-
-- plugin id: `local-tags`
-- author: Leo Yatsishin
-- author URL: [https://github.com/levYatsishin](https://github.com/levYatsishin)
-- repository URL: [https://github.com/levYatsishin/obsidian-local-tags](https://github.com/levYatsishin/obsidian-local-tags)
+- GitHub: [levYatsishin/obsidian-local-tags](https://github.com/levYatsishin/obsidian-local-tags)
+- Issues: [levYatsishin/obsidian-local-tags/issues](https://github.com/levYatsishin/obsidian-local-tags/issues)
 
 ## License
 
