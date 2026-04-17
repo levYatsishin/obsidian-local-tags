@@ -54,6 +54,22 @@ Examples:
 
 ## Install
 
+### Install with BRAT
+
+If you want to use this plugin before it is listed in Obsidian Community Plugins, install it with [BRAT](https://github.com/TfTHacker/obsidian42-brat).
+
+1. Install **BRAT** from **Settings → Community plugins** in Obsidian.
+2. Open BRAT settings.
+3. Select **Add Beta Plugin** or **Add a beta plugin with frozen version**.
+4. Paste this repository URL:
+
+```text
+https://github.com/levYatsishin/obsidian-local-tags
+```
+
+5. Select the latest release version if BRAT asks for one.
+6. Add the plugin and enable **Local tags**.
+
 ### Manual install
 
 1. Download `main.js`, `manifest.json`, and `styles.css` from the latest release.
@@ -123,7 +139,7 @@ Then run `npm run dev` and reload the plugin in Obsidian after changes.
 
 ## Releases
 
-This repository is prepared for GitHub releases.
+This repository is prepared for GitHub releases and BRAT-based beta installation.
 
 For a release:
 
